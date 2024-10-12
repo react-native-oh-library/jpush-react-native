@@ -39,10 +39,10 @@ type Alias = {
 };
 
 type NotificationId = {
-    /**
-     * 通知 ID
-     * */
-    notificationId: String;
+  /**
+   * 通知 ID
+   * */
+  notificationId: String;
 };
 export default class JPush {
   /**
@@ -126,9 +126,9 @@ export default class JPush {
    */
   static queryAlias(params: Sequence): void;
 
-   /**
-   * 进入页面
-   */
+  /**
+  * 进入页面
+  */
   static pageEnterTo(params: String): void;
 
   /**
@@ -156,7 +156,7 @@ export default class JPush {
   /**
    * JPush SDK 开启和关闭省电模式，默认为关闭。
    */
-  static setPowerSaveMode(enable: boolean):void;
+  static setPowerSaveMode(enable: boolean): void;
 
   /**
    * 检查当前应用的通知开关是否开启
@@ -201,12 +201,12 @@ export default class JPush {
    * 清除所有 JPush 展现的通知（不包括非 JPush SDK 展现的）
    *
    */
-  static clearAllNotifications():void;
+  static clearAllNotifications(): void;
 
   /**
    * 删除指定的通知
    * */
-  static clearNotificationById(params: NotificationId):void;
+  static clearNotificationById(params: NotificationId): void;
 
   //***************************************地理围栏***************************************
 
@@ -230,6 +230,10 @@ export default class JPush {
     callback: Callback<{ connectEnable: boolean }>
   ): void;
 
+  //CommandEvent 事件回调
+  static addCommandEventListener(
+    callback: Callback<{ cmd: number, errorCode:number,msg:string,extra:Extra}>
+  ): void;
   /**
    * 通知事件
    *
@@ -362,16 +366,16 @@ export default class JPush {
          */
         code: number;
       } & Sequence &
-        (
-          | Tags
-          | Alias
-          | (Tag & {
-              /**
-               * 执行查询指定tag(queryTag)操作时会返回是否可用
-               */
-              tagEnable: boolean;
-            })
-        )
+      (
+        | Tags
+        | Alias
+        | (Tag & {
+          /**
+           * 执行查询指定tag(queryTag)操作时会返回是否可用
+           */
+          tagEnable: boolean;
+        })
+      )
     >
   ): void;
 
@@ -494,26 +498,26 @@ export default class JPush {
     appBadge: number;
   }): void;
 
- /**
-   * 设置用户分群推送功能开关
-   *
-   * 
-   * @param {boolean} enable,  YES:开启，NO:关闭，默认是开启。
-   *
-   */
- static setSmartPushEnable(enable: boolean): void;
+  /**
+    * 设置用户分群推送功能开关
+    *
+    * 
+    * @param {boolean} enable,  YES:开启，NO:关闭，默认是开启。
+    *
+    */
+  static setSmartPushEnable(enable: boolean): void;
 
-/**
-   * 数据采集控制, YES:开启，NO:关闭, 默认开启
-   *
-   */
- static setCollectControl(params: {
-  cell: boolean;
-  bssid: boolean;
-  imei: boolean;
-  imsi: boolean;
-  mac: boolean;
-  wifi: boolean;
-}): void;
+  /**
+     * 数据采集控制, YES:开启，NO:关闭, 默认开启
+     *
+     */
+  static setCollectControl(params: {
+    cell: boolean;
+    bssid: boolean;
+    imei: boolean;
+    imsi: boolean;
+    mac: boolean;
+    wifi: boolean;
+  }): void;
 
 }

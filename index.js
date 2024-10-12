@@ -1,10 +1,12 @@
 import {
-    DeviceEventEmitter,
+    NativeEventEmitter,
     NativeModules,
     Platform
 } from 'react-native'
 
-const JPushModule = NativeModules.JPushModule
+// const JPushModule = NativeModules.JPushModule
+import JPushModule from "./src/specs/NativeJPush";
+const DeviceEventEmitter = new NativeEventEmitter(JPushModule);
 
 const listeners = {}
 const ConnectEvent           = 'ConnectEvent'            //连接状态
@@ -32,6 +34,7 @@ export default class JPush {
     * 初始化推送服务
     * {"appKey":"","channel":"dev","production":1}
     * 请在componentDidMount()调用init，否则会影响通知点击事件的回调
+    * harmonyOS 请在EntryAbility中onCreate方法中初始化
     * */
     static init(params) {
         if (Platform.OS == "android") {
@@ -609,7 +612,7 @@ export default class JPush {
     * 停止推送服务
     * */
     static stopPush() {
-        if (Platform.OS == "android") {
+        if (Platform.OS == "android" ||Platform.OS  == "harmony") {
             JPushModule.stopPush()
         }
     }
@@ -618,7 +621,7 @@ export default class JPush {
     * 恢复推送服务
     * */
     static resumePush() {
-        if (Platform.OS == "android") {
+        if (Platform.OS == "android" || Platform.OS  == "harmony") {
             JPushModule.resumePush()
         }
     }
@@ -627,7 +630,7 @@ export default class JPush {
     * 用来检查 Push Service 是否已经被停止
     * */
     static isPushStopped(callback) {
-        if (Platform.OS == "android") {
+        if (Platform.OS == "android" || Platform.OS  == "harmony") {
             JPushModule.isPushStopped(callback)
         }
     }
@@ -710,7 +713,7 @@ export default class JPush {
     *
     * */
     static setBadge(params) {
-        if (Platform.OS == "ios") {
+        if (Platform.OS == "ios" || Platform.OS == 'harmony') {
             JPushModule.setBadge(params)
         }else if (Platform.OS == "android") {
             JPushModule.setBadgeNumber(params)

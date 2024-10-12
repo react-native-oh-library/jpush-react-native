@@ -1,0 +1,21 @@
+import { RNPackage, TurboModulesFactory } from '@rnoh/react-native-openharmony/ts';
+import type { TurboModule, TurboModuleContext } from '@rnoh/react-native-openharmony/ts';
+import { TM } from '@rnoh/react-native-openharmony/generated/ts';
+import { RNJPushTurboModule } from './RNJPushTurboModule';
+class RNJPushTurboModuleFactory extends TurboModulesFactory {
+  createTurboModule(name: string): TurboModule | null {
+    if (this.hasTurboModule(name)) {
+      return new RNJPushTurboModule(this.ctx);
+    }
+    return null;
+  }
+  hasTurboModule(name: string): boolean {
+    return name === TM.JPushModule.NAME;
+  }
+
+}
+export class RNJPushPackage extends RNPackage {
+  createTurboModulesFactory(ctx: TurboModuleContext): TurboModulesFactory {
+    return new RNJPushTurboModuleFactory(ctx);
+  }
+}
