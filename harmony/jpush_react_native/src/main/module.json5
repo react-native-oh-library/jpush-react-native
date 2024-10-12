@@ -1,0 +1,11 @@
+{
+  "module": {
+    "name": "jpush_react_native",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet",
+      "2in1"
+    ]
+  }
+}
