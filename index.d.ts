@@ -6,9 +6,7 @@ type Extra = {
 };
 
 export type Sequence = {
-  /**
-   * 请求时传入的序列号,会在回调时原样返回
-   */
+
   sequence: number;
 };
 

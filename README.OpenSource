@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "jpush-react-native",
+        "License": "MIT License",
+        "License File": "https://github.com/jpush/jpush-react-native/blob/master/LICENSE",
+        "Version Number": "3.1.1",
+        "Owner" : "xiafeng@huawei.com",
+        "Upstream URL": "https://github.com/jpush/jpush-react-native",
+        "Description": "React Native JPush component for Android and iOS and harmony"
+    }，
+    {
+        "Name": "@jg/push",
+        "License": "MIT License",
+        "License File": "https://github.com/jpush/jpush-react-native/blob/master/LICENSE",
+        "Version Number": "1.1.1",
+        "Owner" : "jiguang",
+        "Upstream URL": "https://ohpm.openharmony.cn/#/cn/detail/@jg%2Fpush",
+        "Description": "这里是极光推送的鸿蒙SDK，帮助鸿蒙开发者接入鸿蒙推送功能"
+    }
+]
