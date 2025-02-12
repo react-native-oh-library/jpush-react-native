@@ -56,6 +56,7 @@ export class RNJPushTurboModule extends TurboModule implements TM.JPushModule.Sp
     if (params.appKey && params.channel) {
       JPushInterface.setAppKey(params.appKey);
       JPushInterface.setChannel(params.channel);
+      JPushInterface.init(this.context);
     }
   };
 
